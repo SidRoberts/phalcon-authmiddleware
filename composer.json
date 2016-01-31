@@ -1,0 +1,37 @@
+{
+	"name":        "sidroberts/phalcon-authmiddleware",
+	"description": "Auth Middleware component for Phalcon.",
+	"type":        "library",
+	"license":     "MIT",
+	
+	"authors": [
+		{
+			"name":     "Sid Roberts",
+			"email":    "Sid@SidRoberts.co.uk",
+			"homepage": "http://www.SidRoberts.co.uk",
+			"role":     "Developer"
+		}
+	],
+	
+	"support": {
+		"source": "https://www.GitHub.com/SidRoberts/Phalcon-AuthMiddleware",
+		"issues": "https://www.GitHub.com/SidRoberts/Phalcon-AuthMiddleware/issues",
+		"wiki":   "https://www.GitHub.com/SidRoberts/Phalcon-AuthMiddleware/wiki"
+	},
+	
+	
+	
+	"require": {
+		"php": ">= 5.5",
+		
+		"ext-phalcon": ">= 2.0.0"
+	},
+	
+	
+	
+	"autoload": {
+		"psr-4": {
+			"Sid\\Phalcon\\AuthMiddleware\\": "src/"
+		}
+	}
+}
