@@ -10,7 +10,7 @@ class Event extends \Phalcon\Mvc\User\Plugin
      *
      * @return boolean
      *
-     * @throws \Exception
+     * @throws \Sid\Phalcon\AuthMiddleware\Exception
      */
     public function beforeExecuteRoute(\Phalcon\Events\Event $event, \Phalcon\Mvc\DispatcherInterface $dispatcher, $data)
     {
