@@ -13,7 +13,7 @@ Auth Middleware component for Phalcon.
 
 Install using Composer:
 
-```
+```json
 {
 	"require": {
 		"sidroberts/phalcon-authmiddleware": "dev-master"
