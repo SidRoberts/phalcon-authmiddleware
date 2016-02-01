@@ -1,5 +1,6 @@
 <?php
 
+namespace Sid\Phalcon\AuthMiddleware\Tests\Unit;
 
 class MiddlewareTest extends \Codeception\TestCase\Test
 {
