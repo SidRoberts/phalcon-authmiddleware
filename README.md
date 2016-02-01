@@ -5,6 +5,10 @@ Auth Middleware component for Phalcon.
 
 
 
+[![Build Status](https://travis-ci.org/SidRoberts/phalcon-authmiddleware.svg?branch=master)](https://travis-ci.org/SidRoberts/phalcon-authmiddleware)
+
+
+
 ## Installing ##
 
 Install using Composer:
