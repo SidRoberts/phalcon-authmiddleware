@@ -50,7 +50,7 @@ Now, you can create middleware classes:
 ```php
 namespace Example\AuthMiddleware;
 
-class User extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\AuthMiddleware\MiddlewareInterface
+class MustBeLoggedIn extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\AuthMiddleware\MiddlewareInterface
 {
     /**
      * @return boolean
@@ -84,7 +84,7 @@ class User extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\AuthMiddlewa
 class IndexController extends \Phalcon\Mvc\Controller
 {
     /**
-     * @AuthMiddleware("Example\AuthMiddleware\User")
+     * @AuthMiddleware("Example\AuthMiddleware\MustBeLoggedIn")
      */
     public function indexAction()
     {
