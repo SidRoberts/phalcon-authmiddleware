@@ -33,7 +33,7 @@ $di->set(
 
         $eventsManager = $di->getShared("eventsManager");
 
-        $eventsManager->attach("dispatch", new \Sid\Phalcon\AuthMiddleware\Event());
+        $eventsManager->attach("dispatch:beforeExecuteRoute", new \Sid\Phalcon\AuthMiddleware\Event());
 
         $dispatcher->setEventsManager($eventsManager);
 
