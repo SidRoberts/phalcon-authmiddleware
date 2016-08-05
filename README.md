@@ -85,6 +85,7 @@ class IndexController extends \Phalcon\Mvc\Controller
 {
     /**
      * @AuthMiddleware("Example\AuthMiddleware\MustBeLoggedIn")
+     * @AuthMiddleware("Example\AuthMiddleware\MustBeAdmin")
      */
     public function indexAction()
     {
