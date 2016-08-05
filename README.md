@@ -13,12 +13,8 @@ Auth Middleware component for Phalcon.
 
 Install using Composer:
 
-```json
-{
-	"require": {
-		"sidroberts/phalcon-authmiddleware": "dev-master"
-	}
-}
+```bash
+composer require sidroberts/phalcon-authmiddleware
 ```
 
 You'll need to add the event to the `dispatcher` DI service:
