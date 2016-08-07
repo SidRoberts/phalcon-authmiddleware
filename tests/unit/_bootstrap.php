@@ -19,6 +19,15 @@ class IndexController extends \Phalcon\Mvc\Controller
     {
         return "Hello world";
     }
+    
+    /**
+     * @AuthMiddleware("Middleware1")
+     * @AuthMiddleware("Middleware2")
+     */
+    public function index3Action()
+    {
+        return "Hello world";
+    }
 
     public function noMiddlewareAction()
     {
