@@ -37,7 +37,7 @@ class Event extends \Phalcon\Mvc\User\Plugin
             if (!($authMiddleware instanceof \Sid\Phalcon\AuthMiddleware\MiddlewareInterface)) {
                 throw new \Sid\Phalcon\AuthMiddleware\Exception("Not an auth middleware.");
             }
-            if ($authMiddleware->authenticate() !== false ) {
+            if ($authMiddleware->authenticate() !== false) {
                 return $authMiddleware->authenticate();
             }
         }
