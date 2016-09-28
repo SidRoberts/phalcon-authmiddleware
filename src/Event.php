@@ -22,15 +22,26 @@ class Event extends \Phalcon\Mvc\User\Plugin
         if (!$methodAnnotations->has("AuthMiddleware")) {
             return true;
         }
-
-        $class = $methodAnnotations->get("AuthMiddleware")->getArgument(0);
-
-        $authMiddleware = new $class();
-
-        if (!($authMiddleware instanceof \Sid\Phalcon\AuthMiddleware\MiddlewareInterface)) {
-            throw new \Sid\Phalcon\AuthMiddleware\Exception("Not an auth middleware.");
+        
+        $methodAnnotations = $this->annotations->getMethod(
+            $dispatcher->getHandlerClass(),
+            $dispatcher->getActiveMethod()
+        );
+        if (!$methodAnnotations->has("AuthMiddleware")) {
+            return true;
         }
 
-        return $authMiddleware->authenticate();
+        foreach ($methodAnnotations->getAll("AuthMiddleware") as $annotation) {
+            $class = $annotation->getArgument(0);
+            $authMiddleware = new $class();
+            if (!($authMiddleware instanceof \Sid\Phalcon\AuthMiddleware\MiddlewareInterface)) {
+                throw new \Sid\Phalcon\AuthMiddleware\Exception("Not an auth middleware.");
+            }
+            if ($authMiddleware->authenticate() !== false) {
+                return $authMiddleware->authenticate();
+            }
+        }
+        
+        return false;
     }
 }
