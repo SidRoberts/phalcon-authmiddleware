@@ -22,14 +22,6 @@ class Event extends \Phalcon\Mvc\User\Plugin
         if (!$methodAnnotations->has("AuthMiddleware")) {
             return true;
         }
-        
-        $methodAnnotations = $this->annotations->getMethod(
-            $dispatcher->getHandlerClass(),
-            $dispatcher->getActiveMethod()
-        );
-        if (!$methodAnnotations->has("AuthMiddleware")) {
-            return true;
-        }
 
         foreach ($methodAnnotations->getAll("AuthMiddleware") as $annotation) {
             $class = $annotation->getArgument(0);
