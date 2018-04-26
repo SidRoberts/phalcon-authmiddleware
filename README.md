@@ -6,6 +6,7 @@ Auth Middleware component for Phalcon.
 
 
 [![Build Status](https://travis-ci.org/SidRoberts/phalcon-authmiddleware.svg?branch=master)](https://travis-ci.org/SidRoberts/phalcon-authmiddleware)
+[![GitHub tag](https://img.shields.io/github/tag/sidroberts/phalcon-authmiddleware.svg?maxAge=2592000)]()
 
 
 
@@ -13,12 +14,8 @@ Auth Middleware component for Phalcon.
 
 Install using Composer:
 
-```json
-{
-	"require": {
-		"sidroberts/phalcon-authmiddleware": "dev-master"
-	}
-}
+```bash
+composer require sidroberts/phalcon-authmiddleware
 ```
 
 You'll need to add the event to the `dispatcher` DI service:
