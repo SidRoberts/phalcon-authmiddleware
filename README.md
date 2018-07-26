@@ -69,6 +69,32 @@ class MustBeLoggedIn extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\Au
         return true;
     }
 }
+
+class MustIncludeRole extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\AuthMiddleware\MiddlewareInterface,\Sid\Phalcon\AuthMiddleware\MiddlewareParamInterface
+{
+    //All extra params behind the class name. For example: ["CEO", "GeneralManager"] as example below
+    private $roles = [];
+    public function setExtraParam($roles) {
+      $this->roles = $roles;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function authenticate()
+    {
+        $hasPermission = in_array($this->roles, $this->auth->getRoles()) ;
+
+        if (!$hasPermission) {
+            $this->flash->error("You must have permission.");
+            $this->response->redirect(
+                "login"
+            );
+            return false;
+        }
+        return true;
+    }
+}
 ```
 
 
@@ -83,6 +109,7 @@ class IndexController extends \Phalcon\Mvc\Controller
     /**
      * @AuthMiddleware("Example\AuthMiddleware\MustBeLoggedIn")
      * @AuthMiddleware("Example\AuthMiddleware\MustBeAdmin")
+     * @AuthMiddleware("Example\AuthMiddleware\MustIncludeRole", "CEO", "GeneralManager")
      */
     public function indexAction()
     {
