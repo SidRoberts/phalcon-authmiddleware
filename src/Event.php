@@ -22,7 +22,6 @@ class Event extends \Phalcon\Mvc\User\Plugin
         if (!$methodAnnotations->has("AuthMiddleware")) {
             return true;
         }
-
         foreach ($methodAnnotations->getAll("AuthMiddleware") as $annotation) {
             $class = $annotation->getArgument(0);
             $extraParams = array_slice($annotation->getArguments(), 1);
@@ -36,11 +35,11 @@ class Event extends \Phalcon\Mvc\User\Plugin
             }
             
             $result = $authMiddleware->authenticate();
-            if ($result !== false) {
-                return $result;
+            if ($result === false) {
+                throw new \Sid\Phalcon\AuthMiddleware\Exception("AuthMiddleware invalid permission");
             }
         }
         
-        return false;
+        return true;
     }
 }
