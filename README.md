@@ -21,10 +21,12 @@ composer require sidroberts/phalcon-authmiddleware
 You'll need to add the event to the `dispatcher` DI service:
 
 ```php
+use Phalcon\Mvc\Dispatcher;
+
 $di->set(
     "dispatcher",
     function () use ($di) {
-        $dispatcher = new \Phalcon\Mvc\Dispatcher();
+        $dispatcher = new Dispatcher();
 
         // ...
 
@@ -47,7 +49,10 @@ Now, you can create middleware classes:
 ```php
 namespace Example\AuthMiddleware;
 
-class MustBeLoggedIn extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\AuthMiddleware\MiddlewareInterface
+use Phalcon\Mvc\User\Plugin;
+use Sid\Phalcon\AuthMiddleware\MiddlewareInterface;
+
+class MustBeLoggedIn extends Plugin implements MiddlewareInterface
 {
     /**
      * @return boolean
@@ -78,7 +83,9 @@ class MustBeLoggedIn extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\Au
 ### Controller ###
 
 ```php
-class IndexController extends \Phalcon\Mvc\Controller
+use Phalcon\Mvc\Controller;
+
+class IndexController extends Controller
 {
     /**
      * @AuthMiddleware("Example\AuthMiddleware\MustBeLoggedIn")

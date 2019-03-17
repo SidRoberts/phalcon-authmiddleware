@@ -2,7 +2,11 @@
 
 namespace Sid\Phalcon\AuthMiddleware\Tests\Unit;
 
-class MiddlewareTest extends \Codeception\TestCase\Test
+use Codeception\TestCase\Test;
+use Phalcon\Di;
+use Phalcon\Mvc\Dispatcher;
+
+class MiddlewareTest extends Test
 {
    /**
     * @var \UnitTester
@@ -11,14 +15,14 @@ class MiddlewareTest extends \Codeception\TestCase\Test
 
     protected function _before()
     {
-        \Phalcon\Di::reset();
+        Di::reset();
 
         $di = new \Phalcon\Di\FactoryDefault();
 
         $di->set(
             "dispatcher",
             function () {
-                $dispatcher = new \Phalcon\Mvc\Dispatcher();
+                $dispatcher = new Dispatcher();
 
                 $eventsManager = new \Phalcon\Events\Manager();
 

@@ -2,17 +2,20 @@
 
 namespace Sid\Phalcon\AuthMiddleware;
 
-class Event extends \Phalcon\Mvc\User\Plugin
+use Phalcon\Mvc\DispatcherInterface;
+use Phalcon\Mvc\User\Plugin;
+
+class Event extends Plugin
 {
     /**
-     * @param \Phalcon\Events\Event            $event
-     * @param \Phalcon\Mvc\DispatcherInterface $dispatcher
+     * @param \Phalcon\Events\Event $event
+     * @param DispatcherInterface   $dispatcher
      *
      * @return boolean
      *
-     * @throws \Sid\Phalcon\AuthMiddleware\Exception
+     * @throws Exception
      */
-    public function beforeExecuteRoute(\Phalcon\Events\Event $event, \Phalcon\Mvc\DispatcherInterface $dispatcher, $data)
+    public function beforeExecuteRoute(\Phalcon\Events\Event $event, DispatcherInterface $dispatcher, $data)
     {
         $methodAnnotations = $this->annotations->getMethod(
             $dispatcher->getHandlerClass(),
@@ -26,8 +29,8 @@ class Event extends \Phalcon\Mvc\User\Plugin
         foreach ($methodAnnotations->getAll("AuthMiddleware") as $annotation) {
             $class = $annotation->getArgument(0);
             $authMiddleware = new $class();
-            if (!($authMiddleware instanceof \Sid\Phalcon\AuthMiddleware\MiddlewareInterface)) {
-                throw new \Sid\Phalcon\AuthMiddleware\Exception("Not an auth middleware.");
+            if (!($authMiddleware instanceof MiddlewareInterface)) {
+                throw new Exception("Not an auth middleware.");
             }
 
             $result = $authMiddleware->authenticate();
