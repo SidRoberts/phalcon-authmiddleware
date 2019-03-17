@@ -28,14 +28,19 @@ class Event extends Plugin
 
         foreach ($methodAnnotations->getAll("AuthMiddleware") as $annotation) {
             $class = $annotation->getArgument(0);
+
             $authMiddleware = new $class();
+
             if (!($authMiddleware instanceof MiddlewareInterface)) {
                 throw new Exception(
                     "Not an auth middleware."
                 );
             }
 
+
+
             $result = $authMiddleware->authenticate();
+
             if ($result !== false) {
                 return $result;
             }
