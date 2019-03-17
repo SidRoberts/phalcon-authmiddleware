@@ -26,7 +26,10 @@ class MiddlewareTest extends Test
 
                 $eventsManager = new \Phalcon\Events\Manager();
 
-                $eventsManager->attach("dispatch", new \Sid\Phalcon\AuthMiddleware\Event());
+                $eventsManager->attach(
+                    "dispatch",
+                    new \Sid\Phalcon\AuthMiddleware\Event()
+                );
 
                 $dispatcher->setEventsManager($eventsManager);
 

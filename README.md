@@ -32,7 +32,10 @@ $di->set(
 
         $eventsManager = $di->getShared("eventsManager");
 
-        $eventsManager->attach("dispatch:beforeExecuteRoute", new \Sid\Phalcon\AuthMiddleware\Event());
+        $eventsManager->attach(
+            "dispatch:beforeExecuteRoute",
+            new \Sid\Phalcon\AuthMiddleware\Event()
+        );
 
         $dispatcher->setEventsManager($eventsManager);
 
@@ -62,7 +65,9 @@ class MustBeLoggedIn extends Plugin implements MiddlewareInterface
         $loggedIn = $this->auth->isLoggedIn();
 
         if (!$loggedIn) {
-            $this->flash->error("You must be logged in.");
+            $this->flash->error(
+                "You must be logged in."
+            );
 
             $this->response->redirect(
                 "login"

@@ -30,7 +30,9 @@ class Event extends Plugin
             $class = $annotation->getArgument(0);
             $authMiddleware = new $class();
             if (!($authMiddleware instanceof MiddlewareInterface)) {
-                throw new Exception("Not an auth middleware.");
+                throw new Exception(
+                    "Not an auth middleware."
+                );
             }
 
             $result = $authMiddleware->authenticate();
