@@ -22,8 +22,8 @@ You'll need to add the event to the `dispatcher` DI service:
 
 ```php
 $di->set(
-	"dispatcher",
-	function () use ($di) {
+    "dispatcher",
+    function () use ($di) {
         $dispatcher = new \Phalcon\Mvc\Dispatcher();
 
         // ...
@@ -86,7 +86,7 @@ class IndexController extends \Phalcon\Mvc\Controller
      */
     public function indexAction()
     {
-    	// ...
+        // ...
     }
 }
 ```

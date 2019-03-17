@@ -94,7 +94,7 @@ class MiddlewareTest extends \Codeception\TestCase\Test
 
         try {
             $dispatcher->dispatch();
-            
+
             $this->assertTrue(false);
         } catch (\Sid\Phalcon\AuthMiddleware\Exception $e) {
             $this->assertTrue(true);
