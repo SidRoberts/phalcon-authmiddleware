@@ -28,11 +28,11 @@
     },
 
     "require-dev": {
-        "codeception/codeception": "2.1.2",
-        "phpunit/php-code-coverage": "~2.0",
-        "codeclimate/php-test-reporter": "dev-master",
+        "codeception/codeception": "~2.5",
+        "phpunit/php-code-coverage": "~6.0",
+        "codeclimate/php-test-reporter": "0.4.4",
 
-        "squizlabs/php_codesniffer": "2.*"
+        "squizlabs/php_codesniffer": "~3.4"
     },
 
 
