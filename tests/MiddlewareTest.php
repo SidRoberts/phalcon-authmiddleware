@@ -94,17 +94,17 @@ class MiddlewareTest extends Test
 
     public function testAnExceptionIsThrownIfWePassSomethingThatIsntProperMiddleware()
     {
+        $this->expectException(
+            \Sid\Phalcon\AuthMiddleware\Exception::class
+        );
+
+
+
         $dispatcher = $this->dispatcher;
 
         $dispatcher->setControllerName("index");
         $dispatcher->setActionName("notProperMiddleware");
 
-        try {
-            $dispatcher->dispatch();
-
-            $this->assertTrue(false);
-        } catch (\Sid\Phalcon\AuthMiddleware\Exception $e) {
-            $this->assertTrue(true);
-        }
+        $dispatcher->dispatch();
     }
 }
