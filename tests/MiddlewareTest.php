@@ -8,11 +8,6 @@ use Phalcon\Mvc\Dispatcher;
 
 class MiddlewareTest extends Test
 {
-   /**
-    * @var \UnitTester
-    */
-    protected $tester;
-
     protected function _before()
     {
         Di::reset();
@@ -44,6 +39,8 @@ class MiddlewareTest extends Test
     protected function _after()
     {
     }
+
+
 
     // tests
     public function testMiddlewareIsAbleToInterfereWhenReturningTrue()
