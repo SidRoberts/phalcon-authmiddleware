@@ -23,7 +23,6 @@ script:
   - find src/ -type f -print0 | xargs -0 -n1 php -l
   - vendor/bin/phpcs --config-set show_warnings 0
   - vendor/bin/phpcs src/ --standard=psr2
-  - vendor/bin/phpcs tests/*/*Test.php --standard=psr2
 
 notifications:
   email:
