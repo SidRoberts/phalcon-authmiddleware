@@ -17,5 +17,3 @@ coverage:
     whitelist:
         include:
             - src/*
-        exclude:
-            - vendor/*
