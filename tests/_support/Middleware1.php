@@ -1,6 +1,9 @@
 <?php
 
-class Middleware1 extends \Phalcon\Mvc\User\Plugin implements \Sid\Phalcon\AuthMiddleware\MiddlewareInterface
+use Phalcon\Mvc\User\Plugin;
+use Sid\Phalcon\AuthMiddleware\MiddlewareInterface;
+
+class Middleware1 extends Plugin implements MiddlewareInterface
 {
     public function authenticate()
     {
