@@ -14,9 +14,9 @@
     ],
 
     "support": {
-        "source": "https://www.GitHub.com/SidRoberts/Phalcon-AuthMiddleware",
-        "issues": "https://www.GitHub.com/SidRoberts/Phalcon-AuthMiddleware/issues",
-        "wiki":   "https://www.GitHub.com/SidRoberts/Phalcon-AuthMiddleware/wiki"
+        "source": "https://github.com/SidRoberts/phalcon-authmiddleware",
+        "issues": "https://github.com/SidRoberts/phalcon-authmiddleware/issues",
+        "wiki":   "https://github.com/SidRoberts/phalcon-authmiddleware/wiki"
     },
 
 
