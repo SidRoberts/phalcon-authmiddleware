@@ -8,14 +8,9 @@ use Phalcon\Mvc\User\Plugin;
 class Event extends Plugin
 {
     /**
-     * @param \Phalcon\Events\Event $event
-     * @param DispatcherInterface   $dispatcher
-     *
-     * @return boolean
-     *
      * @throws Exception
      */
-    public function beforeExecuteRoute(\Phalcon\Events\Event $event, DispatcherInterface $dispatcher, $data)
+    public function beforeExecuteRoute(\Phalcon\Events\Event $event, DispatcherInterface $dispatcher, $data) : bool
     {
         $methodAnnotations = $this->annotations->getMethod(
             $dispatcher->getHandlerClass(),

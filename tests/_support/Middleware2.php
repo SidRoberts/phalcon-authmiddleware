@@ -5,7 +5,7 @@ use Sid\Phalcon\AuthMiddleware\MiddlewareInterface;
 
 class Middleware2 extends Plugin implements MiddlewareInterface
 {
-    public function authenticate()
+    public function authenticate() : bool
     {
         $this->dispatcher->setReturnedValue("Goodbye cruel world");
         

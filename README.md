@@ -57,10 +57,7 @@ use Sid\Phalcon\AuthMiddleware\MiddlewareInterface;
 
 class MustBeLoggedIn extends Plugin implements MiddlewareInterface
 {
-    /**
-     * @return boolean
-     */
-    public function authenticate()
+    public function authenticate() : bool
     {
         $loggedIn = $this->auth->isLoggedIn();
 
