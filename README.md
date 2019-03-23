@@ -10,7 +10,7 @@ Auth Middleware component for Phalcon.
 
 
 
-## Installing ##
+## Installing
 
 Install using Composer:
 
@@ -18,84 +18,8 @@ Install using Composer:
 composer require sidroberts/phalcon-authmiddleware
 ```
 
-You'll need to add the event to the `dispatcher` DI service:
-
-```php
-use Phalcon\Mvc\Dispatcher;
-
-$di->set(
-    "dispatcher",
-    function () use ($di) {
-        $dispatcher = new Dispatcher();
-
-        // ...
-
-        $eventsManager = $di->getShared("eventsManager");
-
-        $eventsManager->attach(
-            "dispatch:beforeExecuteRoute",
-            new \Sid\Phalcon\AuthMiddleware\Event()
-        );
-
-        $dispatcher->setEventsManager($eventsManager);
-
-        // ...
-
-        return $dispatcher;
-    },
-    true
-);
-```
-
-Now, you can create middleware classes:
-
-```php
-namespace Example\AuthMiddleware;
-
-use Phalcon\Mvc\User\Plugin;
-use Sid\Phalcon\AuthMiddleware\MiddlewareInterface;
-
-class MustBeLoggedIn extends Plugin implements MiddlewareInterface
-{
-    public function authenticate() : bool
-    {
-        $loggedIn = $this->auth->isLoggedIn();
-
-        if (!$loggedIn) {
-            $this->flash->error(
-                "You must be logged in."
-            );
-
-            $this->response->redirect(
-                "login"
-            );
-
-            return false;
-        }
-
-        return true;
-    }
-}
-```
 
 
+## Documentation
 
-## Example ##
-
-### Controller ###
-
-```php
-use Phalcon\Mvc\Controller;
-
-class IndexController extends Controller
-{
-    /**
-     * @AuthMiddleware("Example\AuthMiddleware\MustBeLoggedIn")
-     * @AuthMiddleware("Example\AuthMiddleware\MustBeAdmin")
-     */
-    public function indexAction()
-    {
-        // ...
-    }
-}
-```
+See the [Wiki](https://github.com/SidRoberts/phalcon-authmiddleware/wiki).
