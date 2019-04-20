@@ -10,8 +10,8 @@ Auth Middleware component for Phalcon.
 
 [![License](https://img.shields.io/github/license/SidRoberts/phalcon-authmiddleware.svg?style=for-the-badge)]()
 
-[![GitHub issues](https://img.shields.io/github/issues-raw/SidRoberts/phalcon-authmiddleware.svg?style=for-the-badge)]()
-[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/SidRoberts/phalcon-authmiddleware.svg?style=for-the-badge)]()
+[![GitHub issues](https://img.shields.io/github/issues-raw/SidRoberts/phalcon-authmiddleware.svg?style=for-the-badge)](https://github.com/SidRoberts/phalcon-authmiddleware/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/SidRoberts/phalcon-authmiddleware.svg?style=for-the-badge)](https://github.com/SidRoberts/phalcon-authmiddleware/pulls)
 
 
 
