@@ -1,11 +1,13 @@
 <?php
 
+namespace Tests;
+
 use Phalcon\Mvc\Controller;
 
 class IndexController extends Controller
 {
     /**
-     * @AuthMiddleware("Middleware1")
+     * @AuthMiddleware("Tests\Middleware1")
      */
     public function indexAction()
     {
@@ -13,7 +15,7 @@ class IndexController extends Controller
     }
 
     /**
-     * @AuthMiddleware("Middleware2")
+     * @AuthMiddleware("Tests\Middleware2")
      */
     public function index2Action()
     {
@@ -21,8 +23,8 @@ class IndexController extends Controller
     }
     
     /**
-     * @AuthMiddleware("Middleware1")
-     * @AuthMiddleware("Middleware2")
+     * @AuthMiddleware("Tests\Middleware1")
+     * @AuthMiddleware("Tests\Middleware2")
      */
     public function index3Action()
     {
@@ -35,7 +37,7 @@ class IndexController extends Controller
     }
 
     /**
-     * @AuthMiddleware("IndexController")
+     * @AuthMiddleware("Tests\IndexController")
      */
     public function notProperMiddlewareAction()
     {

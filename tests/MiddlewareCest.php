@@ -1,14 +1,13 @@
 <?php
 
-namespace Sid\Phalcon\AuthMiddleware\Tests\Unit;
+namespace Tests;
 
-use Codeception\TestCase\Test;
 use Phalcon\Di;
 use Phalcon\Mvc\Dispatcher;
 
-class MiddlewareTest extends Test
+class MiddlewareCest
 {
-    protected function _before()
+    public function _before()
     {
         Di::reset();
 
@@ -28,6 +27,8 @@ class MiddlewareTest extends Test
 
                 $dispatcher->setEventsManager($eventsManager);
 
+                $dispatcher->setDefaultNamespace("Tests\\");
+
                 return $dispatcher;
             },
             true
@@ -36,14 +37,9 @@ class MiddlewareTest extends Test
         $this->dispatcher = $di->get("dispatcher");
     }
 
-    protected function _after()
-    {
-    }
 
 
-
-    // tests
-    public function testMiddlewareIsAbleToInterfereWhenReturningTrue()
+    public function testMiddlewareIsAbleToInterfereWhenReturningTrue(UnitTester $I)
     {
         $dispatcher = $this->dispatcher;
 
@@ -52,14 +48,14 @@ class MiddlewareTest extends Test
 
         $dispatcher->dispatch();
 
-        $this->assertEquals(
+        $I->assertEquals(
             "Goodbye cruel world",
             $dispatcher->getReturnedValue()
         );
     }
 
 
-    public function testMiddlewareDoesNotInterfereWhenReturningFalse()
+    public function testMiddlewareDoesNotInterfereWhenReturningFalse(UnitTester $I)
     {
         $dispatcher = $this->dispatcher;
 
@@ -68,13 +64,13 @@ class MiddlewareTest extends Test
 
         $dispatcher->dispatch();
 
-        $this->assertEquals(
+        $I->assertEquals(
             "Hello world",
             $dispatcher->getReturnedValue()
         );
     }
 
-    public function testDispatcherWorksAsNormalWithoutAnyMiddleware()
+    public function testDispatcherWorksAsNormalWithoutAnyMiddleware(UnitTester $I)
     {
         $dispatcher = $this->dispatcher;
 
@@ -83,25 +79,26 @@ class MiddlewareTest extends Test
 
         $dispatcher->dispatch();
 
-        $this->assertEquals(
+        $I->assertEquals(
             "Hello world",
             $dispatcher->getReturnedValue()
         );
     }
 
-    public function testAnExceptionIsThrownIfWePassSomethingThatIsntProperMiddleware()
+    public function testAnExceptionIsThrownIfWePassSomethingThatIsntProperMiddleware(UnitTester $I)
     {
-        $this->expectException(
-            \Sid\Phalcon\AuthMiddleware\Exception::class
-        );
-
-
-
         $dispatcher = $this->dispatcher;
 
         $dispatcher->setControllerName("index");
         $dispatcher->setActionName("notProperMiddleware");
 
-        $dispatcher->dispatch();
+
+
+        $I->expectException(
+            \Sid\Phalcon\AuthMiddleware\Exception::class,
+            function () use ($dispatcher) {
+                $dispatcher->dispatch();
+            }
+        );
     }
 }

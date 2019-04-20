@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use Phalcon\Mvc\User\Plugin;
 use Sid\Phalcon\AuthMiddleware\MiddlewareInterface;
 
