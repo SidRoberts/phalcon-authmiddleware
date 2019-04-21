@@ -39,7 +39,7 @@ class MiddlewareCest
 
 
 
-    public function testMiddlewareIsAbleToInterfereWhenReturningTrue(UnitTester $I)
+    public function middlewareIsAbleToInterfereWhenReturningTrue(UnitTester $I)
     {
         $dispatcher = $this->dispatcher;
 
@@ -55,7 +55,7 @@ class MiddlewareCest
     }
 
 
-    public function testMiddlewareDoesNotInterfereWhenReturningFalse(UnitTester $I)
+    public function middlewareDoesNotInterfereWhenReturningFalse(UnitTester $I)
     {
         $dispatcher = $this->dispatcher;
 
@@ -70,7 +70,7 @@ class MiddlewareCest
         );
     }
 
-    public function testDispatcherWorksAsNormalWithoutAnyMiddleware(UnitTester $I)
+    public function dispatcherWorksAsNormalWithoutAnyMiddleware(UnitTester $I)
     {
         $dispatcher = $this->dispatcher;
 
@@ -85,7 +85,7 @@ class MiddlewareCest
         );
     }
 
-    public function testAnExceptionIsThrownIfWePassSomethingThatIsntProperMiddleware(UnitTester $I)
+    public function anExceptionIsThrownIfWePassSomethingThatIsntProperMiddleware(UnitTester $I)
     {
         $dispatcher = $this->dispatcher;
 
