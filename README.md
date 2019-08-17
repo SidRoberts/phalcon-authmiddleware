@@ -1,5 +1,4 @@
-Sid\Phalcon\AuthMiddleware
-==========================
+# `Sid\Phalcon\AuthMiddleware`
 
 Auth Middleware component for Phalcon.
 
