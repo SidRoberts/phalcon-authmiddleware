@@ -3,9 +3,9 @@
 namespace Sid\Phalcon\AuthMiddleware;
 
 use Phalcon\Mvc\DispatcherInterface;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 
-class Event extends Plugin
+class Event extends Injectable
 {
     /**
      * @throws Exception

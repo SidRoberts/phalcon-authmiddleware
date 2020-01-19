@@ -4,7 +4,7 @@ php:
   - 7.1
 
 env:
-  - PHALCON_VERSION="v3.4.1"
+  - PHALCON_VERSION="v4.0.2"
 
 git:
   depth: 1
