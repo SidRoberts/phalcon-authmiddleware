@@ -94,7 +94,7 @@ class MiddlewareCest
 
 
 
-        $I->expectException(
+        $I->expectThrowable(
             \Sid\Phalcon\AuthMiddleware\Exception::class,
             function () use ($dispatcher) {
                 $dispatcher->dispatch();
