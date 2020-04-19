@@ -21,7 +21,7 @@ install:
   - travis_retry composer update --no-interaction --no-progress
 
 script:
-  - vendor/bin/codecept run unit
+  - vendor/bin/codecept run
   - find src/ -type f -print0 | xargs -0 -n1 php -l
   - vendor/bin/phpcs src/ --standard=psr2
 
