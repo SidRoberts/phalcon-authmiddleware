@@ -28,8 +28,7 @@ class IndexController extends Controller
      */
     public function index3Action()
     {
-        $this->dispatcher->setReturnedValue("Accepted all");
-        return "Hello world";
+        return "Accepted all";
     }
 
     /**
@@ -38,8 +37,7 @@ class IndexController extends Controller
      */
     public function index4Action()
     {
-        $this->dispatcher->setReturnedValue("Accepted all");
-        return "Hello world";
+        return "Accepted all";
     }
 
     public function noMiddlewareAction()
