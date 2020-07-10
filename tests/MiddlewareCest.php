@@ -101,4 +101,34 @@ class MiddlewareCest
             }
         );
     }
+
+    public function multiMiddlewareModeFirstCase(UnitTester $I)
+    {
+        $dispatcher = $this->dispatcher;
+
+        $dispatcher->setControllerName("index");
+        $dispatcher->setActionName("index3");
+
+        $dispatcher->dispatch();
+
+        $I->assertNotEquals(
+            "Accepted all",
+            $dispatcher->getReturnedValue()
+        );
+    }
+
+    public function multiMiddlewareModeSecondCase(UnitTester $I)
+    {
+        $dispatcher = $this->dispatcher;
+
+        $dispatcher->setControllerName("index");
+        $dispatcher->setActionName("index4");
+
+        $dispatcher->dispatch();
+
+        $I->assertEquals(
+            "Accepted all",
+            $dispatcher->getReturnedValue()
+        );
+    }
 }

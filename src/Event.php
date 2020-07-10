@@ -35,12 +35,15 @@ class Event extends Injectable
 
 
             $result = $authMiddleware->authenticate();
-
-            if ($result !== false) {
+            
+            /*
+             * Multi-middleware mode
+             */
+            if ($result === false) {
                 return $result;
             }
         }
 
-        return false;
+        return true;
     }
 }
