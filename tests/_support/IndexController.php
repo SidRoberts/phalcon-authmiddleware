@@ -28,7 +28,7 @@ class IndexController extends Controller
      */
     public function index3Action()
     {
-        return "Hello world";
+        return "If you see me, we've failed";
     }
 
     public function noMiddlewareAction()

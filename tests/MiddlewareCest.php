@@ -101,4 +101,20 @@ class MiddlewareCest
             }
         );
     }
+
+    public function allMiddlewaresMustPassToGetToTheAction(UnitTester $I)
+    {
+        $dispatcher = $this->dispatcher;
+
+        $dispatcher->setControllerName("index");
+        $dispatcher->setActionName("index3");
+
+
+        $dispatcher->dispatch();
+
+        $I->assertNotEquals(
+            "If you see me, we've failed",
+            $dispatcher->getReturnedValue()
+        );
+    }
 }
