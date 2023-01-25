@@ -2,6 +2,6 @@
 
 namespace Sid\Phalcon\AuthMiddleware;
 
-class Exception extends \Phalcon\Exception
+class Exception extends \Exception
 {
 }

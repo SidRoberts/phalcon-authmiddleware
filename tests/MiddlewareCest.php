@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use Phalcon\Di;
+use Phalcon\Di\Di;
 use Phalcon\Mvc\Dispatcher;
 
 class MiddlewareCest

@@ -22,9 +22,9 @@
 
 
     "require": {
-        "php": "~7.2",
+        "php": "~8.0",
 
-        "ext-phalcon": "~4.0"
+        "ext-phalcon": "~5.0"
     },
 
     "require-dev": {
