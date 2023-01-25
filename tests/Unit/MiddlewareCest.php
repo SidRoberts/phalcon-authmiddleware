@@ -1,9 +1,10 @@
 <?php
 
-namespace Tests;
+namespace Tests\Unit;
 
 use Phalcon\Di\Di;
 use Phalcon\Mvc\Dispatcher;
+use Tests\Support\UnitTester;
 
 class MiddlewareCest
 {
@@ -27,7 +28,7 @@ class MiddlewareCest
 
                 $dispatcher->setEventsManager($eventsManager);
 
-                $dispatcher->setDefaultNamespace("Tests\\");
+                $dispatcher->setDefaultNamespace("Tests\\Support\\");
 
                 return $dispatcher;
             },
