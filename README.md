@@ -4,7 +4,7 @@ Auth Middleware component for Phalcon.
 
 
 
-[![Build Status](https://img.shields.io/travis/SidRoberts/phalcon-authmiddleware/4.0.x.svg?style=for-the-badge)](https://travis-ci.org/SidRoberts/phalcon-authmiddleware)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/SidRoberts/phalcon-authmiddleware/tests.yml?style=for-the-badge)](https://github.com/SidRoberts/phalcon-authmiddleware/actions)
 [![GitHub release](https://img.shields.io/github/release/SidRoberts/phalcon-authmiddleware.svg?style=for-the-badge)]()
 
 [![GitHub issues](https://img.shields.io/github/issues-raw/SidRoberts/phalcon-authmiddleware.svg?style=for-the-badge)](https://github.com/SidRoberts/phalcon-authmiddleware/issues)
