@@ -6,7 +6,7 @@ use Phalcon\Events\Event as PhalconEvent;
 use Phalcon\Mvc\DispatcherInterface;
 use Phalcon\Di\Injectable;
 
-class Event extends Injectable
+final class Event extends Injectable
 {
     /**
      * @throws Exception
