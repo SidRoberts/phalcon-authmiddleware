@@ -2,6 +2,7 @@
 
 namespace Sid\Phalcon\AuthMiddleware;
 
+use Phalcon\Events\Event as PhalconEvent;
 use Phalcon\Mvc\DispatcherInterface;
 use Phalcon\Di\Injectable;
 
@@ -10,7 +11,7 @@ class Event extends Injectable
     /**
      * @throws Exception
      */
-    public function beforeExecuteRoute(\Phalcon\Events\Event $event, DispatcherInterface $dispatcher, $data) : bool
+    public function beforeExecuteRoute(PhalconEvent $event, DispatcherInterface $dispatcher, $data) : bool
     {
         $methodAnnotations = $this->annotations->getMethod(
             $dispatcher->getHandlerClass(),

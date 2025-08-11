@@ -3,7 +3,11 @@
 namespace Tests\Unit;
 
 use Phalcon\Di\Di;
+use Phalcon\Di\FactoryDefault as FactoryDefaultDi;
+use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Dispatcher;
+use Sid\Phalcon\AuthMiddleware\Event as AuthMiddlewareEvent;
+use Sid\Phalcon\AuthMiddleware\Exception as AuthMiddlewareException;
 use Tests\Support\UnitTester;
 
 class MiddlewareCest
@@ -12,18 +16,18 @@ class MiddlewareCest
     {
         Di::reset();
 
-        $di = new \Phalcon\Di\FactoryDefault();
+        $di = new FactoryDefaultDi();
 
         $di->set(
             "dispatcher",
             function () {
                 $dispatcher = new Dispatcher();
 
-                $eventsManager = new \Phalcon\Events\Manager();
+                $eventsManager = new EventsManager();
 
                 $eventsManager->attach(
                     "dispatch",
-                    new \Sid\Phalcon\AuthMiddleware\Event()
+                    new AuthMiddlewareEvent()
                 );
 
                 $dispatcher->setEventsManager($eventsManager);
@@ -96,7 +100,7 @@ class MiddlewareCest
 
 
         $I->expectThrowable(
-            \Sid\Phalcon\AuthMiddleware\Exception::class,
+            AuthMiddlewareException::class,
             function () use ($dispatcher) {
                 $dispatcher->dispatch();
             }
